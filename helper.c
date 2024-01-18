@@ -96,6 +96,13 @@ void get_instruct_func(void)
 	if (tool->ntoks == 0)
 		return;
 
+	if (tool->tok[0][0] == '#')
+	{
+		tool->instruct->opcode = "nop";
+		tool->instruct->f = nop;
+		return;
+	}
+
 	while (op[i].opcode != NULL)
 	{
 		if (strcmp(tool->tok[0], op[i].opcode) == 0)
