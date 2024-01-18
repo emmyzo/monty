@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * usage_error - prints error message if args is less or equal to 2

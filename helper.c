@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * init_tools - allocates space for the tools
@@ -90,6 +90,8 @@ void get_instruct_func(void)
 		{"div", &divide},
 		{"mul", &mul},
 		{"mod", &mod},
+		{"pchar", &pchar},
+		{"pstr", &pstr},
 		{NULL, NULL}
 	};
 

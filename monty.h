@@ -78,6 +78,8 @@ void sub(stack_t **head, unsigned int line_number);
 void divide(stack_t **head, unsigned int line_number);
 void mul(stack_t **head, unsigned int line_number);
 void mod(stack_t **head, unsigned int line_number);
+void pchar(stack_t **head, unsigned int line_number);
+void pstr(stack_t **head, unsigned int line_number);
 void malloc_error(void);
 void usage_error(void);
 void file_open_error(char *s);
