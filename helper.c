@@ -29,10 +29,7 @@ void stream(char *filename)
 {
 	tool->fp = fopen(filename, "r");
 	if (tool->fp == NULL)
-	{
-		fclose(tool->fp);
 		file_open_error(filename);
-	}
 }
 
 /**
