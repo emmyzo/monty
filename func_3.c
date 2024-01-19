@@ -52,7 +52,7 @@ void pchar(stack_t **head, unsigned int line_number)
 	{
 		if (tool->stack->n == i)
 		{
-			printf("%c\n", tool->stack->n);
+			printf("%c", tool->stack->n);
 			return;
 		}
 	}
@@ -61,7 +61,7 @@ void pchar(stack_t **head, unsigned int line_number)
 	{
 		if (tool->stack->n == i)
 		{
-			printf("%c\n", tool->stack->n);
+			printf("%c", tool->stack->n);
 			return;
 		}
 	}
@@ -86,10 +86,77 @@ void pstr(stack_t **head, unsigned int line_number)
 	while (tool->stack)
 	{
 		if (tool->stack->n == 0)
+		{
+			printf("\n");
 			return;
+		}
 
 		pchar(&tool->stack, line_number);
 		tool->stack = tool->stack->next;
 	}
 
+}
+
+/**
+ * rotl - rotates stack to the top
+ * @head: pointer to the head node
+ * @line_number: file line no
+*/
+void rotl(stack_t **head, unsigned int line_number)
+{
+	stack_t *temp, *temp2;
+
+	(void)head;
+	(void)line_number;
+
+	if (tool->len < 2)
+		return;
+
+	temp = tool->stack;
+	temp2 = temp->next;
+	tool->stack = temp2;
+
+	while (temp2)
+	{
+		if (temp2->next == NULL)
+		{
+			temp2->next = temp;
+			temp->next = NULL;
+			temp->prev = temp2;
+		}
+		temp2 = temp2->next;
+	}
+}
+
+/**
+ * rotr - rotates stack to the bottom
+ * @head: pointer to the head node
+ * @line_number: file line no
+*/
+void rotr(stack_t **head, unsigned int line_number)
+{
+	stack_t *temp, *temp2;
+
+	(void)head;
+	(void)line_number;
+
+	if (tool->len < 2)
+		return;
+
+	temp = tool->stack;
+
+	while (temp)
+	{
+		if (temp->next == NULL)
+		{
+			temp2 = temp;
+			break;
+		}
+		temp = temp->next;
+	}
+	temp2->prev->next = NULL;
+	temp2->next = tool->stack;
+	temp2->prev = NULL;
+	temp2->next->prev = temp2;
+	tool->stack = temp2;
 }
